@@ -72,7 +72,7 @@
     ]
   },
   "lint-staged": {
-    "/**/*.{ts,tsx,js,jsx}": [
+    "/**/*.ts": [
       "eslint --fix"
     ],
     "./**/*.scss": [
