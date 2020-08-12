@@ -1,5 +1,5 @@
 {
-  "name": "@artifi",
+  "name": "artifi",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -27,16 +27,67 @@
   },
   "private": true,
   "dependencies": {
+    "@nrwl/node": "^10.0.11",
     "@nrwl/react": "^10.0.11"
   },
   "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "@nrwl/eslint-plugin-nx": "10.0.11",
+    "@nrwl/jest": "10.0.11",
     "@nrwl/workspace": "10.0.11",
+    "@types/jest": "25.1.4",
     "@types/node": "~8.9.4",
+    "@typescript-eslint/eslint-plugin": "2.19.2",
+    "@typescript-eslint/parser": "2.19.2",
     "dotenv": "6.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "6.0.0",
+    "htmlhint": "^0.14.1",
+    "husky": "^4.2.5",
+    "jest": "25.2.3",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.4",
+    "pretty-quick": "^2.0.1",
+    "stylelint": "^13.6.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.18.0",
+    "ts-jest": "25.2.1",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
-    "eslint": "6.8.0",
-    "typescript": "~3.9.3",
-    "prettier": "2.0.4"
+    "typescript": "~3.9.3"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.scss",
+        "options": {
+          "singleQuote": false
+        }
+      }
+    ]
+  },
+  "lint-staged": {
+    "./**/*.{ts,tsx,js,jsx}": [
+      "eslint --fix"
+    ],
+    "./**/*.{scss}": [
+      "stylelint --syntax scss --fix"
+    ],
+    "./**/*.{css}": [
+      "stylelint --syntax css --fix"
+    ],
+    "./**/*.html": [
+      "htmlhint . --config .htmlhintrc"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
