@@ -1,5 +1,5 @@
 export * from './lib/core';
 
 
-const test = {};
-export {test}
+const test1 = {};
+export {test1}
