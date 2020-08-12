@@ -71,20 +71,6 @@
       }
     ]
   },
-  "lint-staged": {
-    "/**/*.{ts,tsx,js,jsx}": [
-      "eslint --fix"
-    ],
-    "./**/*.scss": [
-      "stylelint --syntax scss --fix"
-    ],
-    "./**/*.css": [
-      "stylelint --fix"
-    ],
-    "./**/*.html": [
-      "htmlhint . --config .htmlhintrc"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
