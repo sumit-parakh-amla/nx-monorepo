@@ -75,10 +75,10 @@
       "eslint --fix"
     ],
     "./**/*.{scss}": [
-      "stylelint --syntax scss --fix"
+      "stylelint --syntax scss"
     ],
     "./**/*.{css}": [
-      "stylelint --syntax css"
+      "stylelint --syntax css --fix"
     ],
     "./**/*.html": [
       "htmlhint . --config .htmlhintrc"
