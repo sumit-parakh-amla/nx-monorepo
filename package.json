@@ -35,6 +35,7 @@
     "@commitlint/config-conventional": "^9.1.1",
     "@nrwl/eslint-plugin-nx": "10.0.11",
     "@nrwl/jest": "10.0.11",
+    "@nrwl/nx-plugin": "^10.0.11",
     "@nrwl/workspace": "10.0.11",
     "@types/jest": "25.1.4",
     "@types/node": "~8.9.4",
@@ -74,11 +75,11 @@
     "./**/*.{ts,tsx,js,jsx}": [
       "eslint --fix"
     ],
-    "./**/*.{scss}": [
+    "./**/*.scss": [
       "stylelint --syntax scss --fix"
     ],
-    "./**/*.{css}": [
-      "stylelint --syntax css --fix"
+    "./**/*.css": [
+      "stylelint --fix"
     ],
     "./**/*.html": [
       "htmlhint . --config .htmlhintrc"
