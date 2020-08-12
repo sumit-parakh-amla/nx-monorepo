@@ -1,5 +1,5 @@
 {
-    "**/*.{ts,tsx,js,jsx}": [
+    "libs/**/*.{ts,tsx,js,jsx}": [
       "eslint --fix"
     ],
     "**/*.scss": [
