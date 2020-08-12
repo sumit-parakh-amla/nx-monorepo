@@ -3,7 +3,7 @@
       "eslint --fix"
     ],
     "**/*.scss": [
-      "stylelint --syntax scss --fix"
+      "stylelint --syntax scss"
     ],
     "**/*.css": [
       "stylelint --fix"
