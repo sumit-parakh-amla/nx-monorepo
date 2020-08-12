@@ -78,7 +78,7 @@
       "stylelint --syntax scss --fix"
     ],
     "./**/*.{css}": [
-      "stylelint --syntax css --fix"
+      "stylelint --syntax css"
     ],
     "./**/*.html": [
       "htmlhint . --config .htmlhintrc"
