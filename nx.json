@@ -1,5 +1,5 @@
 {
-  "npmScope": "artifi-components",
+  "npmScope": "@artifi",
   "affected": {
     "defaultBase": "master"
   },
