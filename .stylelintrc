@@ -5,6 +5,7 @@
     "stylelint-config-prettier"
   ],
   "rules": {
+    "color-no-invalid-hex": true,
     "font-family-name-quotes": "always-where-recommended",
     "function-url-quotes": [
       "always",
