@@ -1,0 +1,25 @@
+{
+  "$schema": "../../node_modules/@angular-devkit/architect/src/builders-schema.json",
+  "builders": {
+    "build": {
+      "implementation": "./src/builders/build/builder",
+      "schema": "./src/builders/build/schema.json",
+      "description": "Build for Artifi"
+    },
+    "build_browser": {
+      "implementation": "./src/builders/build/browser/builder",
+      "schema": "./src/builders/build/browser/schema.json",
+      "description": "Build browser build for Artifi"
+    },
+    "build_package": {
+      "implementation": "./src/builders/build/package/builder",
+      "schema": "./src/builders/build/package/schema.json",
+      "description": "Build npm package for react library"
+    },
+    "build_node_package": {
+      "implementation": "./src/builders/build/node/package/package.impl",
+      "schema": "./src/builders/build/node/package/schema.json",
+      "description": "Build npm package for typescript library"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "name": "cli",
+  "version": "0.0.1",
+  "schematics": {
+    "cli": {
+      "factory": "./src/schematics/cli/schematic",
+      "schema": "./src/schematics/cli/schema.json",
+      "description": "cli schematic"
+    }
+  }
+}

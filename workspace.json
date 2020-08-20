@@ -27,13 +27,85 @@
           }
         },
         "build": {
-          "builder": "@nrwl/node:package",
+          "builder": "@artifi/cli:build",
           "options": {
-            "outputPath": "dist/libs/core",
+            "outputPath": "dist/libs/core/package",
             "tsConfig": "libs/core/tsconfig.lib.json",
             "packageJson": "libs/core/package.json",
             "main": "libs/core/src/index.ts",
-            "assets": ["libs/core/*.md"]
+            "assets": ["libs/core/*.md"],
+            "buildType": "node"
+          }
+        }
+      }
+    },
+    "cli": {
+      "root": "libs/cli",
+      "sourceRoot": "libs/cli/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/cli/tsconfig.lib.json",
+              "libs/cli/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/cli/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/cli/jest.config.js",
+            "tsConfig": "libs/cli/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/cli",
+            "tsConfig": "libs/cli/tsconfig.lib.json",
+            "packageJson": "libs/cli/package.json",
+            "main": "libs/cli/src/index.ts",
+            "assets": [
+              "libs/cli/*.md",
+              {
+                "input": "./libs/cli/src",
+                "glob": "**/*.!(ts)",
+                "output": "./src"
+              },
+              {
+                "input": "./libs/cli",
+                "glob": "collection.json",
+                "output": "."
+              },
+              {
+                "input": "./libs/cli",
+                "glob": "builders.json",
+                "output": "."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "cli-e2e": {
+      "projectType": "application",
+      "root": "apps\\cli-e2e",
+      "sourceRoot": "apps\\cli-e2e/src",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/nx-plugin:e2e",
+          "options": {
+            "target": "cli:build",
+            "npmPackageName": "@artifi/cli",
+            "pluginOutputPath": "dist/libs/cli",
+            "jestConfig": "apps/cli-e2e/jest.config.js",
+            "tsSpecConfig": "apps/cli-e2e/tsconfig.spec.json"
           }
         }
       }

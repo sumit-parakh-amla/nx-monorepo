@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "$id": "https://json-schema.org/draft-07/schema",
+  "title": "Build npm package for react library",
+  "description": "Build npm package for react library",
+  "type": "object",
+  "properties": {},
+  "required": []
+}
