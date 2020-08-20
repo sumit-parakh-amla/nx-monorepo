@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { BuilderContext, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
 import { BuildResult } from '@angular-devkit/build-webpack';
 import { Observable } from 'rxjs';
 import { BuildBuilderOptions } from '../../utils/types';
 import { runNodePackageBuilder } from './node/package/package.impl';
+import { runPackageBuilder } from './web/package/package.impl';
+
 try {
   require('dotenv').config();
 } catch (e) {
@@ -24,9 +27,13 @@ export type NodeBuildEvent = BuildResult & {
 export function run(
   options: JsonObject & BuildNodeBuilderOptions,
   context: BuilderContext
-): any | Observable<NodeBuildEvent> {
+): Observable<NodeBuildEvent> {
   if (options.buildType === 'node') {
-    return runNodePackageBuilder(options as any, context);
+    return runNodePackageBuilder(options as any, context) as any;
+  }
+
+  if (options.buildType === 'package') {
+    return runPackageBuilder(options as any, context) as any;
   }
 }
 

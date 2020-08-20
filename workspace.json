@@ -109,6 +109,53 @@
           }
         }
       }
+    },
+    "testreactlib": {
+      "root": "libs/testreactlib",
+      "sourceRoot": "libs/testreactlib/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/testreactlib/tsconfig.lib.json",
+              "libs/testreactlib/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/testreactlib/**/*"]
+          }
+        },
+        "build": {
+          "builder": "@artifi/cli:build",
+          "options": {
+            "buildType": "package",
+            "outputPath": "dist/libs/testreactlib/package",
+            "tsConfig": "libs/testreactlib/tsconfig.lib.json",
+            "project": "libs/testreactlib/package.json",
+            "entryFile": "libs/testreactlib/src/index.ts",
+            "external": ["react", "react-dom"],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/testreactlib/jest.config.js",
+            "tsConfig": "libs/testreactlib/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

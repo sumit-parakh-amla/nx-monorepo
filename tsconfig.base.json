@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@artifi/core": ["libs/core/src/index.ts"],
-      "@artifi/cli": ["libs/cli/src/index.ts"]
+      "@artifi/cli": ["libs/cli/src/index.ts"],
+      "@artifi/testreactlib": ["libs/testreactlib/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
