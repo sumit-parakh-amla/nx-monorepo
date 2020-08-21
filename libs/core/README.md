@@ -1,6 +1,6 @@
 # core
 
-This library was generated with [Nx](https://nx.dev)...
+This library was generated with [Nx](https://nx.dev)... Testing
 
 ## Running unit tests
 
