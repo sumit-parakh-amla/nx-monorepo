@@ -3,5 +3,5 @@ export function core(): string {
 }
 
 export const foo = () => {
-  return 'foo123';
+  return 'This is foo method';
 };
