@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './znode-add-to-cart.scss';
-
 /* eslint-disable-next-line */
 export interface ZnodeAddToCartProps {
   productList: any[];

@@ -145,6 +145,32 @@
                 "output": "."
               }
             ]
+          },
+          "configuration": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/todos/src/environments/environment.ts",
+                  "with": "apps/todos/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
           }
         },
         "test": {
@@ -175,8 +201,9 @@
           }
         },
         "build": {
-          "builder": "@nrwl/web:package",
+          "builder": "@artifi/cli:build",
           "options": {
+            "buildType": "package",
             "outputPath": "dist/libs/znode-add-to-cart",
             "tsConfig": "libs/znode-add-to-cart/tsconfig.lib.json",
             "project": "libs/znode-add-to-cart/package.json",

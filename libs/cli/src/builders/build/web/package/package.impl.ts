@@ -40,6 +40,7 @@ import {
   normalizePackageOptions,
 } from '../utils/normalize';
 import { getSourceRoot } from '../utils/source-root';
+import { terser } from 'rollup-plugin-terser';
 
 // These use require because the ES import isn't correct.
 const resolve = require('@rollup/plugin-node-resolve');
@@ -223,6 +224,7 @@ export function createRollupOptions(
       }),
       commonjs(),
       ((filesize as unknown) as Function)(),
+      terser(),
     ];
 
     const globals = options.globals
@@ -239,6 +241,7 @@ export function createRollupOptions(
 
     const rollupConfig = {
       input: options.entryFile,
+      context: 'window',
       output: {
         globals,
         format: config.format,
