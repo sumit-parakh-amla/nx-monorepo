@@ -3,5 +3,5 @@ export function core(): string {
 }
 
 export const foo = () => {
-  return 'This is foo method';
+  return 'This will be released in APD-1234';
 };
