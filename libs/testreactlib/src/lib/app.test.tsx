@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Testreactlib from './testreactlib';
+import Testreactlib from './app';
 
 describe('Testreactlib', () => {
   it('should render successfully', () => {
